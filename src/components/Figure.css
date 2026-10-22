@@ -1,0 +1,143 @@
+.figure {
+  position: relative;
+  overflow: hidden;
+  background: var(--c-paper);
+  border-radius: var(--r-sm);
+}
+
+.figure__inner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.figure__inner > img,
+.figure__art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .figure > .figure__inner {
+    transform: scale(1.06);
+    transition: transform 1600ms var(--ease-out);
+  }
+
+  .figure.is-visible > .figure__inner,
+  .figure:not([data-reveal]) > .figure__inner {
+    transform: none;
+  }
+}
+
+/* ---------- Plano tonal provisional ---------- */
+
+.figure__art {
+  position: relative;
+  background: var(--art-base);
+}
+
+/* Haz de luz difusa, como luz de ventana sobre lino */
+.figure__light {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 55% 40% at var(--lx, 70%) var(--ly, 25%), var(--art-glow) 0%, transparent 70%),
+    repeating-linear-gradient(
+      var(--la, 112deg),
+      transparent 0 9%,
+      var(--art-shaft) 9% 15%,
+      transparent 15% 24%
+    );
+  filter: blur(22px);
+  opacity: 0.9;
+}
+
+.figure__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .3 0 0 0 0 .28 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.tone-linen {
+  --art-base: linear-gradient(160deg, #ece6da 0%, #d9cfbf 55%, #b9ad9a 100%);
+  --art-glow: rgba(255, 252, 244, 0.95);
+  --art-shaft: rgba(255, 251, 240, 0.55);
+}
+
+.tone-mineral {
+  --art-base: linear-gradient(200deg, #bfd0cc 0%, #8fb0ab 45%, #5d807c 100%);
+  --art-glow: rgba(240, 248, 245, 0.8);
+  --art-shaft: rgba(232, 244, 240, 0.35);
+  --lx: 30%;
+  --la: 70deg;
+}
+
+.tone-sand {
+  --art-base: linear-gradient(135deg, #f1e9dc 0%, #e2d2bb 50%, #c9b190 100%);
+  --art-glow: rgba(255, 248, 235, 0.9);
+  --art-shaft: rgba(255, 246, 228, 0.5);
+  --lx: 40%;
+  --ly: 60%;
+}
+
+.tone-stone {
+  --art-base: linear-gradient(180deg, #d8d6cf 0%, #b4b3ab 60%, #8d8c84 100%);
+  --art-glow: rgba(250, 249, 245, 0.85);
+  --art-shaft: rgba(250, 248, 242, 0.4);
+  --la: 96deg;
+}
+
+.tone-dusk {
+  --art-base: linear-gradient(170deg, #4a5a57 0%, #2f3a38 55%, #1f2624 100%);
+  --art-glow: rgba(160, 196, 190, 0.45);
+  --art-shaft: rgba(170, 200, 194, 0.16);
+  --lx: 75%;
+  --ly: 20%;
+}
+
+/* Etiqueta: deja claro que es un espacio provisional */
+.figure__pending {
+  position: absolute;
+  left: var(--s-3);
+  right: var(--s-3);
+  top: var(--s-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-end;
+  margin-left: auto;
+  max-width: 22rem;
+  text-align: right;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: rgba(37, 39, 36, 0.78);
+  pointer-events: none;
+}
+
+.tone-dusk .figure__pending,
+.tone-mineral .figure__pending {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.figure__pending-tag {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+}
+
+.figure__pending-brief {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .figure__pending-brief {
+    display: none;
+  }
+}

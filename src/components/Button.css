@@ -1,0 +1,117 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  min-height: 52px;
+  padding: 0 var(--s-6);
+  border: 1px solid transparent;
+  border-radius: var(--r-pill);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color var(--d-base) var(--ease-out),
+    border-color var(--d-base) var(--ease-out),
+    background-color var(--d-base) var(--ease-out),
+    transform var(--d-fast) var(--ease-out);
+}
+
+/* Relleno que sube desde abajo en hover */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform var(--d-base) var(--ease-out);
+}
+
+.btn:hover::before {
+  transform: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn .arrow {
+  transition: transform var(--d-base) var(--ease-out);
+}
+
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.btn--primary {
+  background: var(--c-teal-deep);
+  color: var(--c-white);
+}
+
+.btn--primary::before {
+  background: var(--c-ink);
+}
+
+.btn--secondary {
+  background: transparent;
+  border-color: var(--c-ink);
+  color: var(--c-ink);
+}
+
+.btn--secondary::before {
+  background: var(--c-ink);
+}
+
+.btn--secondary:hover {
+  color: var(--c-ivory);
+}
+
+.btn--light {
+  background: var(--c-ivory);
+  color: var(--c-ink);
+}
+
+.btn--light::before {
+  background: var(--c-teal);
+}
+
+.btn--light:hover {
+  color: var(--c-ink-deep);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--c-line-dark);
+  color: var(--c-ivory);
+}
+
+.btn--ghost::before {
+  background: var(--c-ivory);
+}
+
+.btn--ghost:hover {
+  color: var(--c-ink);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.btn:disabled::before {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .btn {
+    padding: 0 var(--s-5);
+  }
+}

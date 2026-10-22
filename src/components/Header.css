@@ -1,0 +1,237 @@
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--c-ink);
+  transition:
+    background-color var(--d-base) var(--ease-out),
+    box-shadow var(--d-base) var(--ease-out);
+}
+
+.site-header.is-solid {
+  background: rgba(247, 245, 240, 0.92);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  box-shadow: 0 1px 0 var(--c-line);
+}
+
+.site-header.is-mega {
+  background: var(--c-ivory);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  height: var(--header-h);
+}
+
+.site-header__brand {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
+.site-header__nav ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 0.2rem + 1.3vw, 2rem);
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 9px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--d-base) var(--ease-out);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link.is-active {
+  color: var(--c-teal-deep);
+}
+
+.nav-link--trigger .chev {
+  transition: transform var(--d-base) var(--ease-out);
+}
+
+.nav-link--trigger[aria-expanded='true'] .chev {
+  transform: rotate(180deg);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.site-header__cta {
+  min-height: 44px;
+  padding-inline: var(--s-5);
+  font-size: 0.875rem;
+}
+
+/* ---------- Mega menú ---------- */
+
+.mega {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--c-ivory);
+  border-top: var(--border);
+  box-shadow: 0 30px 50px -40px rgba(26, 28, 25, 0.45);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mega:not([hidden]) {
+    animation: mega-in var(--d-base) var(--ease-out);
+  }
+}
+
+@keyframes mega-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.mega__inner {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: var(--s-6);
+  padding-block: var(--s-7) var(--s-8);
+}
+
+.mega__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-4);
+  padding-right: var(--s-6);
+  border-right: var(--border);
+}
+
+.mega__title {
+  font-size: 2rem;
+  line-height: 1.05;
+  max-width: 14ch;
+}
+
+.mega__group-label {
+  color: var(--c-muted);
+  padding-bottom: var(--s-3);
+  margin-bottom: var(--s-3);
+  border-bottom: var(--border);
+}
+
+.mega__group ul {
+  display: grid;
+  gap: 2px;
+}
+
+.mega__group a {
+  display: block;
+  padding: 6px 0;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  transition: color var(--d-fast), transform var(--d-base) var(--ease-out);
+}
+
+.mega__group a:hover {
+  color: var(--c-teal-deep);
+  transform: translateX(4px);
+}
+
+/* ---------- Toggle móvil ---------- */
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: var(--s-3);
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--s-2);
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.menu-toggle__lines {
+  position: relative;
+  width: 22px;
+  height: 8px;
+  border-block: 1.5px solid currentColor;
+}
+
+@media (max-width: 1080px) {
+  .site-header__nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --header-h: 64px;
+  }
+
+  .site-header__cta {
+    padding-inline: var(--s-4);
+    font-size: 0.8125rem;
+  }
+
+  .menu-toggle__label {
+    display: none;
+  }
+}
+
+.cta-short {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .site-header__cta .cta-long {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .site-header__cta .cta-short {
+    display: inline;
+  }
+}

@@ -1,0 +1,88 @@
+.px {
+  background: var(--c-mist);
+}
+
+.px__head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: var(--s-5);
+  align-items: end;
+  margin-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+}
+
+.px__eyebrow {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--s-3);
+  color: var(--c-muted);
+}
+
+.px__title {
+  grid-column: 1 / 8;
+}
+
+.px__intro {
+  grid-column: 9 / 13;
+  display: grid;
+  gap: var(--s-5);
+  justify-items: start;
+}
+
+.px__cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gutter);
+  align-items: start;
+}
+
+/* Ritmo escalonado: rompe la fila uniforme */
+.px__cards > :nth-child(2n) {
+  margin-top: clamp(2rem, 1rem + 4vw, 6rem);
+}
+
+.px__note {
+  margin-top: var(--s-8);
+  max-width: 44rem;
+  padding-top: var(--s-4);
+  border-top: 1px solid rgba(37, 39, 36, 0.15);
+}
+
+@media (max-width: 1000px) {
+  .px__title,
+  .px__intro {
+    grid-column: 1 / -1;
+  }
+
+  .px__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: var(--s-8);
+  }
+}
+
+@media (max-width: 560px) {
+  /* Carrusel horizontal nativo con scroll-snap en móvil */
+  .px__cards {
+    display: flex;
+    gap: var(--s-4);
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .px__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .px__cards > * {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+  }
+
+  .px__cards > :nth-child(2n) {
+    margin-top: 0;
+  }
+}

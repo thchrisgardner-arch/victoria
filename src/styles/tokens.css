@@ -1,0 +1,75 @@
+/*
+ * Tokens visuales de Victoria.
+ * La paleta parte de la propuesta exploratoria (ivory, charcoal, teal mineral)
+ * y ajusta dos valores para cumplir WCAG AA en texto:
+ *   - gris secundario #777873 → #686964 (4.5:1 sobre ivory)
+ *   - teal #719B98 se reserva para detalles; el teal de texto/CTA es #3D6461.
+ * Validar contra el manual de marca oficial cuando esté disponible.
+ */
+:root {
+  /* Color */
+  --c-ivory: #f7f5f0;
+  --c-white: #ffffff;
+  --c-paper: #efece4;
+  --c-ink: #252724;
+  --c-ink-deep: #1a1c19;
+  --c-muted: #686964;
+  --c-teal: #719b98;
+  --c-teal-deep: #3d6461;
+  --c-teal-ink: #2c4a48;
+  --c-mist: #e4ebe9;
+  --c-line: #dfded8;
+  --c-line-dark: rgba(247, 245, 240, 0.16);
+  --c-error: #9a3324;
+  --c-focus: #3d6461;
+
+  /* Tipografía */
+  --f-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --f-sans: 'Manrope Variable', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --t-h1: clamp(3rem, 1.35rem + 6.4vw, 8.25rem);
+  --t-h2: clamp(2.35rem, 1.5rem + 3.4vw, 5rem);
+  --t-h3: clamp(1.5rem, 1.25rem + 0.9vw, 2.1rem);
+  --t-lead: clamp(1.075rem, 1rem + 0.35vw, 1.3rem);
+  --t-body: 1rem;
+  --t-small: 0.875rem;
+  --t-label: 0.75rem;
+
+  --lh-tight: 0.94;
+  --lh-heading: 1.04;
+  --lh-body: 1.65;
+
+  /* Espaciado (escala 4px) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --section-y: clamp(5rem, 3rem + 7vw, 10.5rem);
+
+  /* Layout */
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3rem);
+  --max: 1520px;
+  --measure: 34rem;
+  --header-h: 72px;
+
+  /* Forma */
+  --r-sm: 2px;
+  --r-md: 4px;
+  --r-pill: 999px;
+  --border: 1px solid var(--c-line);
+  --shadow-soft: 0 24px 48px -32px rgba(26, 28, 25, 0.35);
+
+  /* Motion */
+  --d-fast: 180ms;
+  --d-base: 320ms;
+  --d-slow: 900ms;
+  --d-reveal: 1100ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+}

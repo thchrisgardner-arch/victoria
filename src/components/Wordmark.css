@@ -1,0 +1,34 @@
+.wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.wordmark__name {
+  font-family: var(--f-display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.wordmark__sub {
+  margin-top: 3px;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.wordmark--xl .wordmark__name {
+  font-size: min(31.5vw, 30rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.8;
+}
+
+.wordmark--xl .wordmark__sub {
+  margin-top: var(--s-4);
+  font-size: clamp(0.7rem, 0.5rem + 0.6vw, 1rem);
+  letter-spacing: 0.4em;
+  padding-left: 0.6em;
+}
