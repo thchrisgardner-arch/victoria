@@ -1,5 +1,6 @@
 import { ContactCTA } from '../components/ContactCTA';
 import { Figure } from '../components/Figure';
+import { MixedTitle } from '../components/MixedTitle';
 import { PageIntro } from '../components/PageIntro';
 import { PendingNote } from '../components/Pending';
 import { experienceModules, logisticsDisclaimer, logisticsServices } from '../content/logistics';
@@ -16,10 +17,9 @@ export default function Experience() {
     <>
       <PageIntro
         crumbs={[{ label: 'Experiencia del paciente' }]}
-        eyebrow="Experiencia del paciente"
         title={
           <>
-            Te acompañamos <em>más allá de la consulta.</em>
+            Te acompañamos <em>más allá de la</em> consulta.
           </>
         }
         lead={
@@ -28,7 +28,7 @@ export default function Experience() {
               Victoria contempla servicios logísticos complementarios a la atención médica, pensados para que tu proceso sea
               más cómodo y organizado.
             </p>
-            <p className="small">{logisticsDisclaimer}</p>
+            <p className="body">{logisticsDisclaimer}</p>
           </>
         }
       />
@@ -38,9 +38,8 @@ export default function Experience() {
           <div className={`page-block__grid container xp-block__grid ${i % 2 ? 'is-flipped' : ''}`}>
             <Figure media={m.image} ratio="4 / 3" className="xp-block__media" />
             <div className="xp-block__copy">
-              <span className="index-num">{String(i + 1).padStart(2, '0')}</span>
               <h2 id={`xp-${i}`} className="h2">
-                {m.title}
+                <MixedTitle text={m.title} />
               </h2>
               <p className="lead">{m.text}</p>
               <ul role="list" className="detail-list">

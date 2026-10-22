@@ -20,7 +20,10 @@ export function useParallax(ref: RefObject<HTMLElement | null>, strength = 0.08)
       }
       const rect = el.getBoundingClientRect();
       const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      el.style.transform = `translate3d(0, ${(-center * strength).toFixed(1)}px, 0) scale(1.08)`;
+      // El desplazamiento nunca supera el margen que deja la escala (4% por lado)
+      const limit = rect.height * 0.035;
+      const offset = Math.max(-limit, Math.min(limit, -center * strength));
+      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0) scale(1.08)`;
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(update);

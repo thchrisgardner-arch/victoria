@@ -7,7 +7,7 @@
 }
 
 .contact-aside .label {
-  color: var(--c-muted);
+  color: var(--muted);
 }
 
 .contact-aside__sub {
@@ -24,7 +24,7 @@
 
 .contact-aside__list dt {
   font-size: var(--t-label);
-  color: var(--c-muted);
+  color: var(--muted);
 }
 
 .contact-main {

@@ -17,16 +17,13 @@ export function TrustTeam() {
   if (!hasTeam && credentials.length === 0 && !showPending) return null;
 
   return (
-    <section className="trust section" aria-labelledby="trust-title">
+    <section className="trust section on-ivory" aria-labelledby="trust-title">
       <div className="trust__grid container">
         <div className="trust__head">
-          <p className="label trust__eyebrow" data-reveal>
-            <span className="index-num">06</span> Confianza
-          </p>
-          <h2 id="trust-title" className="h2" data-reveal style={{ '--reveal-i': 1 } as CSSProperties}>
-            Personas reales, <em>información verificable.</em>
+          <h2 id="trust-title" className="h2" data-reveal>
+            Personas reales, <em>información</em> verificable.
           </h2>
-          <p className="body" data-reveal style={{ '--reveal-i': 2 } as CSSProperties}>
+          <p className="body" data-reveal style={{ '--reveal-i': 1 } as CSSProperties}>
             Conocer a quién te atiende es parte de una decisión tranquila. Este espacio presenta a los profesionales, sus
             credenciales y las instalaciones de Victoria.
           </p>
@@ -38,15 +35,14 @@ export function TrustTeam() {
                 <li key={m.name} className="trust__member" data-reveal style={{ '--reveal-i': i } as CSSProperties}>
                   {m.photo && <Figure media={m.photo} ratio="4 / 5" reveal={false} />}
                   <h3 className="h3">{m.name}</h3>
-                  <p className="small">{m.role}</p>
-                  <p className="small">{m.specialties.map((s) => getSpecialty(s)?.name).filter(Boolean).join(' · ')}</p>
-                  {m.registry && <p className="small">Registro: {m.registry}</p>}
+                  <p className="body">{m.role}</p>
+                  <p className="body">{m.specialties.map((s) => getSpecialty(s)?.name).filter(Boolean).join(' · ')}</p>
+                  {m.registry && <p className="body">Registro: {m.registry}</p>}
                 </li>
               ))
             : [0, 1, 2].map((i) => (
                 <li key={i} className="trust__slot" data-reveal style={{ '--reveal-i': i } as CSSProperties}>
                   <div className="trust__slot-photo" aria-hidden="true" />
-                  <p className="label">Perfil profesional</p>
                   <dl>
                     {slotFields.map((f) => (
                       <div key={f}>
@@ -60,13 +56,13 @@ export function TrustTeam() {
         </ul>
 
         <div className="trust__facilities">
-          <Figure media={media.facilities} ratio="21 / 9" />
+          <Figure media={media.facilities} ratio="21 / 9" sizes="(min-width: 1000px) 70vw, 100vw" />
         </div>
 
         <div className="trust__creds" data-reveal>
-          <p className="label">Credenciales e información institucional</p>
+          <h3 className="h3">Credenciales</h3>
           {credentials.length > 0 ? (
-            <ul role="list">
+            <ul role="list" className="body">
               {credentials.map((c) => (
                 <li key={c.title}>
                   <strong>{c.title}</strong> · {c.issuer}

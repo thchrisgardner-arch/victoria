@@ -9,13 +9,14 @@
 }
 
 .field label {
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-family: var(--f-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 
 .field__optional {
   font-weight: 400;
-  color: var(--c-muted);
+  color: var(--muted);
 }
 
 .field input:not([type='checkbox']),
@@ -25,7 +26,7 @@
   min-height: 52px;
   padding: var(--s-3) 0;
   border: 0;
-  border-bottom: 1px solid var(--c-ink);
+  border-bottom: 1px solid var(--fg);
   border-radius: 0;
   background: transparent;
   font-size: 1.0625rem;
@@ -42,8 +43,8 @@
 .field select:focus-visible,
 .field textarea:focus-visible {
   outline: none;
-  border-bottom-color: var(--c-teal-deep);
-  box-shadow: 0 2px 0 0 var(--c-teal-deep);
+  border-bottom-color: var(--accent);
+  box-shadow: 0 2px 0 0 var(--accent);
 }
 
 .field__select {
@@ -65,19 +66,19 @@
 
 .field__hint {
   font-size: 0.8125rem;
-  color: var(--c-muted);
+  color: var(--muted);
 }
 
 .field__error {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--c-error);
+  color: var(--color-error);
 }
 
 .has-error input:not([type='checkbox']),
 .has-error select,
 .has-error textarea {
-  border-bottom-color: var(--c-error);
+  border-bottom-color: var(--color-error);
   border-bottom-width: 2px;
 }
 
@@ -91,7 +92,7 @@
   width: 22px;
   height: 22px;
   margin: 1px 0 0;
-  accent-color: var(--c-teal-deep);
+  accent-color: var(--accent);
 }
 
 .field--check label {
@@ -127,8 +128,8 @@
 
 .form-status {
   padding: var(--s-4) var(--s-5);
-  border-left: 3px solid var(--c-teal-deep);
-  background: var(--c-mist);
+  border-left: 3px solid var(--accent);
+  background: var(--color-ivory);
   font-size: 0.9375rem;
 }
 
@@ -137,11 +138,11 @@
 }
 
 .form-status:focus-visible {
-  outline: 2px solid var(--c-focus);
+  outline: 2px solid var(--focus);
 }
 
 .form-status--error,
 .form-status--unavailable {
-  border-left-color: var(--c-error);
+  border-left-color: var(--color-error);
   background: #f4e9e5;
 }

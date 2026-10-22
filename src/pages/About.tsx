@@ -21,10 +21,9 @@ export default function About() {
     <>
       <PageIntro
         crumbs={[{ label: 'Nosotros' }]}
-        eyebrow="Nosotros"
         title={
           <>
-            Atención médica, <em>pensada con cuidado.</em>
+            Atención médica, <em>pensada con</em> cuidado.
           </>
         }
         lead="Victoria Home Health & Spa reúne servicios médicos, procedimientos quirúrgicos, medicina estética y antiaging, y servicios logísticos de acompañamiento al paciente en Barranquilla."
@@ -32,12 +31,9 @@ export default function About() {
 
       <section className="page-block" aria-labelledby="history-title">
         <div className="page-block__grid container">
-          <div className="page-block__label">
-            <p className="label">Historia</p>
-          </div>
           <div className="page-block__content">
             <h2 id="history-title" className="h2">
-              Nuestra <em>historia</em>
+              <em>Nuestra</em> historia
             </h2>
             <PendingNote>Año de fundación, origen y trayectoria de Victoria, redactados con información aprobada.</PendingNote>
           </div>
@@ -46,17 +42,13 @@ export default function About() {
 
       <section className="page-block" aria-labelledby="philo-title">
         <div className="page-block__grid container">
-          <div className="page-block__label">
-            <p className="label">Filosofía de atención</p>
-          </div>
           <div className="page-block__content">
             <h2 id="philo-title" className="h2">
-              Lo que guía <em>cada proceso</em>
+              Lo que <em>guía cada</em> proceso
             </h2>
             <ol role="list" className="principles">
               {principles.map((p, i) => (
                 <li key={p.title} data-reveal style={{ ['--reveal-i' as string]: i }}>
-                  <span className="index-num">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="h3">{p.title}</h3>
                   <p className="body">{p.text}</p>
                 </li>

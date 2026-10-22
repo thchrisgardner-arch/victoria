@@ -17,10 +17,9 @@ export default function Specialties() {
     <>
       <PageIntro
         crumbs={[{ label: 'Especialidades' }]}
-        eyebrow="Especialidades médicas"
         title={
           <>
-            Áreas de atención, <em>organizadas para ti.</em>
+            Áreas de atención, <em>organizadas para</em> ti.
           </>
         }
         lead={
@@ -34,15 +33,14 @@ export default function Specialties() {
         }
       />
 
-      {groupOrder.map((g, gi) => (
+      {groupOrder.map((g) => (
         <section key={g} className="spec-group page-block" aria-labelledby={`group-${g}`}>
           <div className="page-block__grid container">
             <div className="page-block__label spec-group__label">
-              <span className="index-num">{String(gi + 1).padStart(2, '0')}</span>
               <h2 id={`group-${g}`} className="h3">
                 {groups[g].label}
               </h2>
-              <p className="small">{groups[g].description}</p>
+              <p className="body">{groups[g].description}</p>
             </div>
             <div className="page-block__content spec-group__cards">
               {specialtiesByGroup(g).map((s, i) => (

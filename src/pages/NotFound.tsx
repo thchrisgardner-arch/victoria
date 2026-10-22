@@ -7,10 +7,9 @@ export default function NotFound() {
   usePageMeta({ title: 'Página no encontrada' });
   return (
     <PageIntro
-      eyebrow="Error 404"
       title={
         <>
-          Esta página <em>no existe.</em>
+          Esta página <em>no</em> existe.
         </>
       }
       lead={

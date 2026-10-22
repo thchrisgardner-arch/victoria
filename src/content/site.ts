@@ -62,5 +62,6 @@ export const legalNav: NavItem[] = [
 export const ctaLabels = {
   primary: 'Solicitar valoración',
   secondary: 'Explorar especialidades',
+  discover: 'Descubrir Victoria',
   whatsapp: 'Contactar por WhatsApp',
 } as const;

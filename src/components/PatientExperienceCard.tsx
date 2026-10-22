@@ -7,17 +7,22 @@ export function PatientExperienceCard({ module, index }: { module: ExperienceMod
   const included = logisticsServices.filter((l) => module.includes.includes(l.slug));
   return (
     <article className="px-card" data-reveal style={{ '--reveal-i': index } as CSSProperties}>
-      <Figure media={module.image} ratio="3 / 4" reveal={false} showBrief={false} className="px-card__media" />
+      <Figure
+        media={module.image}
+        ratio="3 / 4"
+        reveal={false}
+        showBrief={false}
+        className="px-card__media"
+        sizes="(min-width: 1000px) 24vw, (min-width: 561px) 46vw, 80vw"
+      />
       <div className="px-card__body">
-        <p className="index-num">{String(index + 1).padStart(2, '0')}</p>
         <h3 className="h3">{module.title}</h3>
         <p className="px-card__text">{module.text}</p>
         {included.length > 1 && (
-          <ul className="px-card__tags" role="list" aria-label={`Servicios en ${module.title}`}>
-            {included.map((l) => (
-              <li key={l.slug}>{l.name}</li>
-            ))}
-          </ul>
+          <p className="px-card__includes">
+            <span className="visually-hidden">Incluye: </span>
+            {included.map((l) => l.name).join(' · ')}
+          </p>
         )}
       </div>
     </article>

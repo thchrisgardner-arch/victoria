@@ -7,36 +7,45 @@ import { featuredSpecialtySlug, getSpecialty, specialtyPath } from '../../conten
 import './FeaturedService.css';
 
 /**
- * Servicio destacado. Hoy apunta a medicina antiaging como hipótesis; cambiar
- * `featuredSpecialtySlug` cuando el cliente confirme la línea prioritaria.
+ * Servicio destacado con tratamiento de campaña editorial. Hoy apunta a
+ * medicina antiaging como hipótesis; cambiar `featuredSpecialtySlug` cuando el
+ * cliente confirme la línea prioritaria.
  */
 export function FeaturedService() {
   const s = getSpecialty(featuredSpecialtySlug);
   if (!s) return null;
 
   return (
-    <section className="featured" aria-labelledby="featured-title">
+    <section className="featured on-dark" aria-labelledby="featured-title">
       <div className="featured__grid container">
-        <Figure media={media.featuredAntiaging} ratio="7 / 6" className="featured__main" parallax={0.07} />
-        <Figure media={media.featuredAntiagingDetail} ratio="1 / 1" className="featured__detail" showBrief={false} revealIndex={2} />
+        <Figure
+          media={media.featuredAntiaging}
+          ratio="4 / 5"
+          className="featured__main"
+          parallax={0.06}
+          sizes="(min-width: 900px) 48vw, 92vw"
+        />
+        <Figure
+          media={media.featuredAntiagingDetail}
+          ratio="3 / 4"
+          className="featured__detail"
+          revealIndex={2}
+          sizes="(min-width: 900px) 18vw, 40vw"
+        />
 
-        <div className="featured__copy">
-          <p className="label featured__eyebrow" data-reveal>
-            <span className="index-num">03</span> Servicio destacado · {s.name}
+        <h2 id="featured-title" className="h2 featured__title" data-reveal style={{ '--reveal-i': 1 } as CSSProperties}>
+          Bienestar <em>que evoluciona</em> contigo.
+        </h2>
+
+        <div className="featured__text" data-reveal style={{ '--reveal-i': 2 } as CSSProperties}>
+          <p className="lead">
+            Conoce las opciones de atención en medicina antiaging y consulta con el equipo las alternativas disponibles
+            para tus necesidades.
           </p>
-          <h2 id="featured-title" className="h2 featured__title" data-reveal style={{ '--reveal-i': 1 } as CSSProperties}>
-            Bienestar que <em>evoluciona contigo.</em>
-          </h2>
-          <div className="featured__text" data-reveal style={{ '--reveal-i': 2 } as CSSProperties}>
-            <p className="lead">
-              Conoce las opciones de atención en medicina antiaging y consulta con el equipo sobre las alternativas
-              disponibles para tus necesidades.
-            </p>
-            <Button to={specialtyPath(s.slug)} arrow>
-              Explorar {s.name.toLowerCase()}
-            </Button>
-            <PendingNote>Línea prioritaria y tratamientos vigentes, por confirmar con Victoria.</PendingNote>
-          </div>
+          <Button to={specialtyPath(s.slug)} variant="gold" arrow>
+            {`Explorar ${s.name.toLowerCase()}`}
+          </Button>
+          <PendingNote tone="dark">Línea prioritaria y tratamientos vigentes, por confirmar con Victoria.</PendingNote>
         </div>
       </div>
     </section>

@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 dist-preview
+
+# Fuentes comerciales sin licencia: no se publican en el repositorio
+public/fonts/*.woff2
+public/fonts/*.woff

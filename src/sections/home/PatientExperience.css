@@ -1,32 +1,24 @@
-.px {
-  background: var(--c-mist);
-}
-
+/* Encabezado centrado y fotografías verticales con ritmo escalonado */
 .px__head {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  row-gap: var(--s-5);
-  align-items: end;
-  margin-bottom: clamp(3rem, 2rem + 4vw, 6rem);
-}
-
-.px__eyebrow {
-  grid-column: 1 / -1;
-  display: flex;
-  gap: var(--s-3);
-  color: var(--c-muted);
+  justify-items: center;
+  gap: var(--s-6);
+  text-align: center;
+  margin-bottom: clamp(3.5rem, 2rem + 5vw, 7rem);
 }
 
 .px__title {
-  grid-column: 1 / 8;
+  max-width: 16ch;
 }
 
 .px__intro {
-  grid-column: 9 / 13;
   display: grid;
+  justify-items: center;
   gap: var(--s-5);
-  justify-items: start;
+}
+
+.px__intro .body {
+  max-width: 34rem;
 }
 
 .px__cards {
@@ -36,24 +28,21 @@
   align-items: start;
 }
 
-/* Ritmo escalonado: rompe la fila uniforme */
 .px__cards > :nth-child(2n) {
-  margin-top: clamp(2rem, 1rem + 4vw, 6rem);
+  margin-top: clamp(2.5rem, 1rem + 5vw, 7rem);
 }
 
 .px__note {
-  margin-top: var(--s-8);
-  max-width: 44rem;
-  padding-top: var(--s-4);
-  border-top: 1px solid rgba(37, 39, 36, 0.15);
+  margin: var(--s-9) auto 0;
+  max-width: 40rem;
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--color-gold);
+  text-align: center;
+  color: var(--muted);
+  font-size: 1rem;
 }
 
 @media (max-width: 1000px) {
-  .px__title,
-  .px__intro {
-    grid-column: 1 / -1;
-  }
-
   .px__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: var(--s-8);
@@ -78,7 +67,7 @@
   }
 
   .px__cards > * {
-    flex: 0 0 78%;
+    flex: 0 0 80%;
     scroll-snap-align: start;
   }
 

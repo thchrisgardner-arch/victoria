@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MixedTitle } from '../components/MixedTitle';
 import { PageIntro } from '../components/PageIntro';
 import { PendingNote } from '../components/Pending';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -21,7 +22,7 @@ export default function Legal({ doc }: { doc: LegalDoc }) {
   usePageMeta({ title: d.title, path: `/legal/${doc}` });
   return (
     <>
-      <PageIntro crumbs={[{ label: d.title }]} eyebrow="Información legal" title={d.title} />
+      <PageIntro crumbs={[{ label: d.title }]} title={<MixedTitle text={d.title} />} />
       <section className="page-block">
         <div className="page-block__grid container">
           <div className="page-block__content">

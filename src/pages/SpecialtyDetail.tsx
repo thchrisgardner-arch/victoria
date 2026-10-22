@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { ContactCTA } from '../components/ContactCTA';
+import { MixedTitle } from '../components/MixedTitle';
 import { PageIntro } from '../components/PageIntro';
 import { PendingNote } from '../components/Pending';
 import { SpecialtyCard } from '../components/SpecialtyCard';
 import { ctaLabels } from '../content/site';
-import { getSpecialty, groups, specialtiesByGroup, specialties } from '../content/specialties';
+import { getSpecialty, specialtiesByGroup, specialties } from '../content/specialties';
 import { team } from '../content/team';
 import { usePageMeta } from '../hooks/usePageMeta';
 import NotFound from './NotFound';
@@ -28,8 +29,7 @@ export default function SpecialtyDetail() {
     <>
       <PageIntro
         crumbs={[{ label: 'Especialidades', to: '/especialidades' }, { label: s.name }]}
-        eyebrow={groups[s.group].label}
-        title={s.name}
+        title={<MixedTitle text={s.name} />}
         lead={
           <>
             <p className="lead">{s.intro}</p>
@@ -44,12 +44,9 @@ export default function SpecialtyDetail() {
 
       <section className="page-block" aria-labelledby="proc-title">
         <div className="page-block__grid container">
-          <div className="page-block__label">
-            <p className="label">Procedimientos</p>
-          </div>
           <div className="page-block__content">
             <h2 id="proc-title" className="h2">
-              Opciones <em>disponibles</em>
+              Opciones <em>de</em> atención
             </h2>
             {s.procedures.length > 0 ? (
               <ul className="detail-list" role="list">
@@ -69,9 +66,6 @@ export default function SpecialtyDetail() {
 
       <section className="page-block" aria-labelledby="team-title">
         <div className="page-block__grid container">
-          <div className="page-block__label">
-            <p className="label">Equipo</p>
-          </div>
           <div className="page-block__content">
             <h2 id="team-title" className="h3">
               Profesionales del área
@@ -95,8 +89,8 @@ export default function SpecialtyDetail() {
 
       <section className="page-block" aria-labelledby="related-title">
         <div className="container">
-          <h2 id="related-title" className="label related-title">
-            Otras especialidades
+          <h2 id="related-title" className="h2 related-title">
+            <em>Otras</em> especialidades
           </h2>
           <div className="related-grid">
             {related.map((r, i) => (

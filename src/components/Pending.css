@@ -3,22 +3,30 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: var(--s-2) var(--s-3);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
+  font-style: italic;
   line-height: 1.5;
-  color: var(--c-muted);
+  color: var(--color-gray-ink);
 }
 
 .pending__tag {
   flex: none;
-  padding: 2px 8px;
-  border: 1px dashed currentColor;
+  padding: 1px 8px;
+  border: 1px dashed var(--color-gold);
   border-radius: var(--r-pill);
+  font-family: var(--f-sans);
   font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--color-gold-ink);
 }
 
 .pending--dark {
-  color: rgba(247, 245, 240, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pending--dark .pending__tag {
+  color: var(--color-gold-light);
 }

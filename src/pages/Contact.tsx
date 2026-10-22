@@ -34,10 +34,9 @@ export default function Contact() {
     <>
       <PageIntro
         crumbs={[{ label: 'Contacto' }]}
-        eyebrow="Contacto"
         title={
           <>
-            Estamos aquí <em>para orientarte.</em>
+            Estamos aquí <em>para</em> orientarte.
           </>
         }
         lead="Cuéntanos qué estás buscando y te ayudaremos a conocer las opciones de atención disponibles."
@@ -89,7 +88,7 @@ export default function Contact() {
 
           <div className="contact-main">
             <h2 id="valoracion" className="h2">
-              Solicitar <em>valoración</em>
+              <em>Solicitar</em> valoración
             </h2>
             {!formEnabled && (
               <PendingNote>

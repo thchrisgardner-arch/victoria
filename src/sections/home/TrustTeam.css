@@ -1,29 +1,19 @@
-.trust {
-  background: var(--c-paper);
-}
-
 .trust__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--gutter);
-  row-gap: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  row-gap: clamp(3rem, 2rem + 3vw, 5rem);
 }
 
 .trust__head {
-  grid-column: 1 / 5;
+  grid-column: 1 / 6;
   display: grid;
-  gap: var(--s-5);
+  gap: var(--s-6);
   align-content: start;
 }
 
-.trust__eyebrow {
-  display: flex;
-  gap: var(--s-3);
-  color: var(--c-muted);
-}
-
 .trust__team {
-  grid-column: 6 / 13;
+  grid-column: 7 / 13;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--s-4);
@@ -42,32 +32,27 @@
 
 .trust__slot-photo {
   aspect-ratio: 4 / 5;
-  border: 1px dashed rgba(37, 39, 36, 0.35);
-  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
   background:
-    linear-gradient(135deg, transparent 49.6%, rgba(37, 39, 36, 0.12) 50%, transparent 50.4%),
-    rgba(255, 255, 255, 0.4);
-}
-
-.trust__slot .label {
-  color: var(--c-muted);
-  padding-top: var(--s-2);
+    linear-gradient(135deg, transparent 49.7%, var(--line) 50%, transparent 50.3%),
+    rgba(255, 255, 255, 0.5);
 }
 
 .trust__slot dl {
   display: grid;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
 }
 
 .trust__slot dl > div {
   display: flex;
   justify-content: space-between;
   padding: 6px 0;
-  border-bottom: var(--border);
+  border-bottom: 1px solid var(--line);
 }
 
 .trust__slot dt {
-  color: var(--c-muted);
+  color: var(--muted);
+  font-style: italic;
 }
 
 .trust__facilities {
@@ -80,11 +65,7 @@
   display: grid;
   gap: var(--s-4);
   padding-top: var(--s-4);
-  border-top: 1px solid var(--c-ink);
-}
-
-.trust__creds .label {
-  color: var(--c-muted);
+  border-top: 1px solid var(--color-gold);
 }
 
 @media (max-width: 1000px) {

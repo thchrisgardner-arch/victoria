@@ -5,7 +5,8 @@ import './PageIntro.css';
 type Crumb = { label: string; to?: string };
 
 type Props = {
-  eyebrow: string;
+  /** Ya no se muestra: los rótulos pequeños se retiraron del diseño. */
+  eyebrow?: string;
   title: ReactNode;
   lead?: ReactNode;
   crumbs?: Crumb[];
@@ -13,7 +14,7 @@ type Props = {
 };
 
 /** Introducción editorial de páginas internas. */
-export function PageIntro({ eyebrow, title, lead, crumbs, aside }: Props) {
+export function PageIntro({ title, lead, crumbs, aside }: Props) {
   return (
     <section className="page-intro">
       <div className="page-intro__grid container">
@@ -29,9 +30,6 @@ export function PageIntro({ eyebrow, title, lead, crumbs, aside }: Props) {
             </ol>
           </nav>
         )}
-        <p className="label page-intro__eyebrow hero-in" style={{ '--d': 0 } as CSSProperties}>
-          {eyebrow}
-        </p>
         <h1 className="h1 page-intro__title hero-in" style={{ '--d': 1 } as CSSProperties}>
           {title}
         </h1>
